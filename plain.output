@@ -1,0 +1,12 @@
+Feature: Google Search Capability
+
+  Scenario: Able to enter search text
+    Given I have a browser and a website URL "https://google.com" ... passed in 0.000s
+    When I visit the website URL ... passed in 0.417s
+    Then I should be able to enter a search text ... passed in 0.207s
+
+  Scenario: Able to text search
+    Given I have a browser and a website URL "https://google.com" ... passed in 0.000s
+    When I visit the website URL ... passed in 0.169s
+    Then I should get a search result for "selenium webdriver" ... passed in 1.271s
+
