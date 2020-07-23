@@ -1,0 +1,25 @@
+Feature: Can create a Spring Boot Maven project with an available release # features/spring_boot_website_maven_project.feature:1
+  As a Spring Boot user,
+  I want to create a Maven based project using Spring Boot framework
+  So that I can create application quickly for must customer
+  @maven_project
+  Scenario: Can create Maven Project for Spring Boot 2.2.8                  # features/spring_boot_website_maven_project.feature:7
+    Given I am at the Spring Initializer website "https://start.spring.io/" # features/steps/spring_boot_website_create_project.py:5
+      Traceback (most recent call last):
+        File "/home/student/.local/lib/python3.6/site-packages/behave/model.py", line 1329, in run
+          match.run(runner.context)
+        File "/home/student/.local/lib/python3.6/site-packages/behave/matchers.py", line 98, in run
+          self.func(context, *args, **kwargs)
+        File "features/steps/spring_boot_website_create_project.py", line 8, in step_impl
+          raise NotImplementedError(u'STEP: Given I am at the Spring Initializer website "https://start.spring.io/"')
+      NotImplementedError: STEP: Given I am at the Spring Initializer website "https://start.spring.io/"
+      
+      Captured stdout:
+      <behave.runner.Context object at 0x7f1b3ec27ac8>
+
+    When I create a Spring boot with the following attributes               # None
+      | project | language | version | group          | artifact  | description | packaging | java_version |
+      | Maven   | Kotlin   | 2.2.8   | com.drkiettran | my_kotlin | testing     | war       | 11           |
+    Then I should receive a zip file                                        # None
+    And the file should contain a build.gradle file with version "2.2.8"    # None
+

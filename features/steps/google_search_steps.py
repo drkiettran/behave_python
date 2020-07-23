@@ -1,38 +1,27 @@
-from behave import given, when, then
+from behave import given, when, then, fixture
 import logging
 from selenium import webdriver
 import unittest
+from google_page import GoogleSearchPage
 
 
-class GoogleSearch:
-    def __init__(self, context):
-        self.context = context
+@fixture()
+def before_feature(context):
+    pass
 
-    def get(self, url):
-        self.context.browser.get(url)
-
-    def enter_text(self, text):
-        q = self.context.browser.find_elements_by_name('q')
-        q[0].clear()
-        q[0].send_keys(text)
-        return True
-
-    def text_search(self, text):
-        search_buttons = self.context.browser.find_elements_by_xpath('//input[@name="btnK"]')
-        self.enter_text(text)
-        search_buttons[0].click()
-        return self.context.browser.find_element_by_tag_name('body').text
-
+@fixture()
+def after_feature(context):
+    context.google_search.tearDown()
 
 @given(u'I have a browser and a website URL "{url}"')
 def step_impl(context, url):
     context.url = url
-    context.google_search = GoogleSearch(context)
+    context.google_search = GoogleSearchPage()
 
 
 @when(u'I visit the website URL')
 def step_impl(context):
-    context.google_search.get(context.url)
+    context.google_search.visit(context.url)
 
 
 @then(u'I should be able to enter a search text')

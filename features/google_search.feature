@@ -4,6 +4,7 @@ Feature: Google Search Capability
   So that I can complete my homework assignment
 
 
+
   Scenario: Able to enter search text
     Given I have a browser and a website URL "https://google.com"
     When I visit the website URL

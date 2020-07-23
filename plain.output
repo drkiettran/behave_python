@@ -1,12 +1,16 @@
-Feature: Google Search Capability
+Feature: Can create a Spring Boot Maven project with an available release
 
-  Scenario: Able to enter search text
-    Given I have a browser and a website URL "https://google.com" ... passed in 0.000s
-    When I visit the website URL ... passed in 0.417s
-    Then I should be able to enter a search text ... passed in 0.207s
+  Scenario: Can create Maven Project for Spring Boot 2.2.8
+    Given I am at the Spring Initializer website "https://start.spring.io/" ... failed in 0.000s
+Traceback (most recent call last):
+  File "/home/student/.local/lib/python3.6/site-packages/behave/model.py", line 1329, in run
+    match.run(runner.context)
+  File "/home/student/.local/lib/python3.6/site-packages/behave/matchers.py", line 98, in run
+    self.func(context, *args, **kwargs)
+  File "features/steps/spring_boot_website_create_project.py", line 8, in step_impl
+    raise NotImplementedError(u'STEP: Given I am at the Spring Initializer website "https://start.spring.io/"')
+NotImplementedError: STEP: Given I am at the Spring Initializer website "https://start.spring.io/"
 
-  Scenario: Able to text search
-    Given I have a browser and a website URL "https://google.com" ... passed in 0.000s
-    When I visit the website URL ... passed in 0.169s
-    Then I should get a search result for "selenium webdriver" ... passed in 1.271s
+Captured stdout:
+https://start.spring.io/
 
